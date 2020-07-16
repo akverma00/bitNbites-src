@@ -9,21 +9,39 @@
     "lite": "lite-server",
     "scss": "node-sass -o css/ css/",
     "watch:scss": "onchange 'css/*.scss' -- npm run scss",
-    "watch:all": "parallelshell 'npm run watch:scss' 'npm run lite' "
+    "watch:all": "parallelshell 'npm run watch:scss' 'npm run lite' ",
+    "clean": "rimraf dist",
+    "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
+    "imagemin": "imagemin img/* -o dist/img",
+    "usemin": "usemin contact.html -d dist --htmlmin -o dist/contact.html && usemin aboutus.html -d dist --htmlmin -o dist/aboutus.html && usemin index.html -d dist --htmlmin -o dist/index.html  ",
+    "build": "npm run clean && npm run copyfonts && npm run imagemin && npm run usemin"
   },
   "author": "Arun Kumar Verma",
   "license": "ISC",
   "devDependencies": {
-    "lite-server": "^2.3.0",
+    "cssmin": "^0.4.3",
+    "htmlmin": "0.0.7",
+    "lite-server": "^2.5.4",
     "node-sass": "^4.14.1",
     "onchange": "^3.3.0",
-    "parallelshell": "^3.0.1"
+    "parallelshell": "^3.0.1",
+    "rimraf": "^2.7.1",
+    "uglifyjs": "^2.4.11",
+    "usemin-cli": "^0.6.0"
   },
   "dependencies": {
+    "bin-build": "^3.0.0",
     "bootstrap": "^4.5.0",
     "bootstrap-social": "^5.1.1",
+    "build": "^0.1.4",
+    "copyfonts": "^1.0.0",
     "font-awesome": "^4.7.0",
+    "imagemin": "^7.0.1",
     "jquery": "^3.5.1",
-    "popper.js": "^1.12.9"
+    "optipng": "^2.1.0",
+    "optipng-bin": "^7.0.0",
+    "popper.js": "^1.16.1",
+    "scss": "^0.2.4",
+    "usemin": "^0.6.0"
   }
 }
